@@ -48,7 +48,7 @@ public class DiscussPostController {
     }
 
     // 处理查询请求
-    @RequestMapping(path = "/detail/discussPostId", method = RequestMethod.GET)
+    @RequestMapping(path = "/detail/{discussPostId}", method = RequestMethod.GET)
     public String getDiscussPost(@PathVariable("discussPostId") int discussPostId, Model model) {
         // 查询帖子
         DiscussPost post = discussPostService.findDiscussPostById(discussPostId);
