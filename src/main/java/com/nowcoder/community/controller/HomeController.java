@@ -49,4 +49,9 @@ public class HomeController {
         return "/index"; // 返回模版路径
     }
 
+    @RequestMapping(path = "/error", method = RequestMethod.GET)
+    public String getErrorPage() {
+        return "/error/500";
+    }
+
 }
