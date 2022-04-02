@@ -24,13 +24,13 @@ public class LikeController {
 
     @RequestMapping(path = "/like", method = RequestMethod.POST)
     @ResponseBody
-    public String like(int entityType, int entityId) {
+    public String like(int entityType, int entityId, int entityUserId) {
         User user = hostHolder.getUser();
 
         // 待实现拦截器：不登录不让访问
 
         // 实现点赞
-        likeService.like(user.getId(), entityType, entityId);
+        likeService.like(user.getId(), entityType, entityId, entityUserId);
         // 获赞数
         long likeCount = likeService.findEntityLikeCount(entityType, entityId);
         // 状态
