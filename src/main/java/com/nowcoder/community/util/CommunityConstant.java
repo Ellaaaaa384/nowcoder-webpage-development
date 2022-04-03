@@ -14,4 +14,5 @@ public interface CommunityConstant {
     // 定义实体类型
     int ENTITY_TYPE_POST = 1; // 帖子
     int ENTITY_TYPE_COMMENT = 2; // 评论
+    int ENTITY_TYPE_USER = 3; // 用户
 }
