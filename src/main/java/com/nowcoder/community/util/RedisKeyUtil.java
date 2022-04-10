@@ -8,6 +8,9 @@ public class RedisKeyUtil {
     private static final String PREFIX_USER_LIKE = "like:user";
     private static final String PREFIX_FOLLOWEE = "followee";
     private static final String PREFIX_FOLLOWER = "follower";
+    private static final String PREFIX_KAPTCHA = "kaptcha";
+    private static final String PREFIX_TICKET = "ticket";
+    private static final String PREFIX_USER = "user";
 
     // 生成某个实体的赞
     // key -> value 形式
@@ -34,4 +37,19 @@ public class RedisKeyUtil {
         return PREFIX_FOLLOWER + SPLIT + entityType + SPLIT + entityId;
     }
 
+    // 拼验证码的key
+    // 传入一个用户的临时凭证，使不同用户有不同验证码
+    public static String getKaptchaKey(String owner) {
+        return PREFIX_KAPTCHA + SPLIT + owner;
+    }
+
+    // 返回登陆凭证key的方法
+    public static String getTicketKey(String ticket) {
+        return PREFIX_TICKET + SPLIT + ticket;
+    }
+
+    // 拼userKey
+    public static String getUserKey(int userId) {
+        return PREFIX_USER + SPLIT + userId;
+    }
 }
